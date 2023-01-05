@@ -12,7 +12,7 @@ Architecture Type_3 OF Testbench_MIC IS
 SIGNAL Signal_CLK 	  	 : std_logic;
 SIGNAL Signal_RESET 		 : std_logic;
 SIGNAL Signal_AMUX 		 : std_logic;
-SIGNAL Signal_ALU 		 : std_logic_vector(1 DOWNTO 0)
+SIGNAL Signal_ALU 		 : std_logic_vector(1 DOWNTO 0);
 SIGNAL Signal_MBR 		 : std_logic;
 SIGNAL Signal_MAR 		 : std_logic;
 SIGNAL Signal_RD 			 : std_logic;
@@ -30,7 +30,7 @@ SIGNAL Signal_MAR_Output : std_logic_vector(11 DOWNTO 0);
 SIGNAL Signal_RD_Output  : std_logic;
 SIGNAL Signal_WR_Output  : std_logic;
 SIGNAL Signal_Z			 : std_logic;
-SIGNAL Signal_N 			 : std_logic;);
+SIGNAL Signal_N 			 : std_logic;
 
 COMPONENT PROJETO_MIC IS
 PORT(
@@ -69,7 +69,7 @@ PORT MAP(
 		MBR 			=> Signal_MBR,
 		MAR 			=> Signal_MAR,
 		RD 			=> Signal_RD,
-		WR 			=> Signal_WR
+		WR 			=> Signal_WR,
 		ENC 			=> Signal_ENC,
 		C 				=> Signal_C,
 		B 				=> Signal_B,

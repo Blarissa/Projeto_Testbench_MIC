@@ -10,7 +10,7 @@ PORT (
 --	Reset		: IN std_logic;
 --	MBR		: IN std_logic;
 	RD		: IN std_logic;
-	Data_Ok		: BUFFER std_logic := '0') ;	-- sinalk interno que habilita escrita no MBR a partir da memória q
+	Data_Ok		: BUFFER std_logic := '0') ;	-- sinal interno que habilita escrita no MBR a partir da memï¿½ria q
 END Data_OK_Gen;
 
 Architecture behavioral OF Data_OK_Gen IS
