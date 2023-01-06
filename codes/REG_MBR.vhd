@@ -8,23 +8,23 @@ ENTITY REG_MBR IS
 PORT (
 	Clk		: IN std_logic;
 	Reset		: IN std_logic;
-	MBR		: IN std_logic;			     -- habilitação de escrita de C_BUS no MBR (vem da unidade de controle)
-	WR		: IN std_logic;			     -- Sinaliza a laitura da memória, resultando em escrita do dado vindo da memória em MBR
+	MBR		: IN std_logic;			     -- habilitaï¿½ï¿½o de escrita de C_BUS no MBR (vem da unidade de controle)
+	WR		: IN std_logic;			     -- Sinaliza a laitura da memï¿½ria, resultando em escrita do dado vindo da memï¿½ria em MBR
 	C_BUS		: IN std_logic_vector(15 downto 0);  -- Entrada do barramento C no MBR
-	MEM_TO_MBR	: IN std_logic_vector(15 downto 0);  -- Entrada da memória no MBR
+	MEM_TO_MBR	: IN std_logic_vector(15 downto 0);  -- Entrada da memï¿½ria no MBR
 
-	MBR_TO_MEM	: OUT std_logic_vector(15 downto 0);  -- Saída do MBR para a memória
-	MBR_Input	: OUT std_logic_vector(15 downto 0));  -- Saída do MBR para o AMUX
+	MBR_TO_MEM	: OUT std_logic_vector(15 downto 0);  -- Saï¿½da do MBR para a memï¿½ria
+	MBR_Input	: OUT std_logic_vector(15 downto 0));  -- Saï¿½da do MBR para o AMUX
 
 END REG_MBR;
 
 Architecture behavioral OF REG_MBR IS
 
-SIGNAL REG_MBR_Out : std_logic_vector(15 downto 0); -- Ponto memorizante de saida para a memória
+SIGNAL REG_MBR_Out : std_logic_vector(15 downto 0); -- Ponto memorizante de saida para a memï¿½ria
 
-SIGNAL REG_MBR_In : std_logic_vector(15 downto 0);  -- Ponto memorizante de entrada da memória
+SIGNAL REG_MBR_In : std_logic_vector(15 downto 0);  -- Ponto memorizante de entrada da memï¿½ria
 
-SIGNAL  DATA_Ok	: std_logic := '0'; -- habilitação de escrita de MEM_TO_MBR no registrador MBR
+SIGNAL  DATA_Ok	: std_logic := '0'; -- habilitaï¿½ï¿½o de escrita de MEM_TO_MBR no registrador MBR
 
 BEGIN
 
@@ -54,17 +54,17 @@ BEGIN
 End Process MBR_In_Process;
 
 
--- Insirer descrição deste processo
+-- Insirer descriï¿½ï¿½o deste processo
 GEN_DATA_OK : PROCESS (Clk)
 Begin
 	IF rising_edge(Clk) THEN
 		IF (WR'stable) THEN
-			Data_OK <= WR; -- Na segunda subida do relógio com MBR = 1, DATA_Ok será levado a '1' 
+			Data_OK <= WR; -- Na segunda subida do relï¿½gio com MBR = 1, DATA_Ok serï¿½ levado a '1' 
 			ELSE
-				Data_OK <= '0'; -- Evita setar DATA_Ok na primeira subida, pois MBR não está estável
+				Data_OK <= '0'; -- Evita setar DATA_Ok na primeira subida, pois MBR nï¿½o estï¿½ estï¿½vel
 		END IF;
 		ELSE
-			Data_OK <= Data_OK; -- Efeito memõria. Não escreve fora da subida domnrelógio
+			Data_OK <= Data_OK; -- Efeito memï¿½ria. Nï¿½o escreve fora da subida domnrelï¿½gio
 	END IF;
 
 End Process GEN_DATA_Ok;
