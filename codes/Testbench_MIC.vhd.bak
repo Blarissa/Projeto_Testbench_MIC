@@ -1,9 +1,0 @@
-library IEEE;
-use IEEE.std_logic_1164.all;
-use IEEE.numeric_std.all;
-use std.textio.all;
-
------------ Entidade do Testbench -------
-ENTITY Testbench_MIC IS
-
-END Testbench_MIC_Banck_Registers;
