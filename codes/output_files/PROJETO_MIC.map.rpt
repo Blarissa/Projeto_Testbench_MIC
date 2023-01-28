@@ -1,5 +1,5 @@
 Analysis & Synthesis report for PROJETO_MIC
-Sat Jan 07 22:06:53 2023
+Mon Jan 09 19:58:39 2023
 Quartus Prime Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
 
 
@@ -10,7 +10,16 @@ Quartus Prime Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
   2. Analysis & Synthesis Summary
   3. Analysis & Synthesis Settings
   4. Parallel Compilation
-  5. Analysis & Synthesis Messages
+  5. Analysis & Synthesis Source Files Read
+  6. Analysis & Synthesis Resource Usage Summary
+  7. Analysis & Synthesis Resource Utilization by Entity
+  8. Registers Removed During Synthesis
+  9. General Register Statistics
+ 10. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 11. Port Connectivity Checks: "MIC_Banck_Registers:Registers"
+ 12. Post-Synthesis Netlist Statistics for Top Partition
+ 13. Elapsed Time Per Partition
+ 14. Analysis & Synthesis Messages
 
 
 
@@ -34,22 +43,27 @@ https://fpgasoftware.intel.com/eula.
 
 
 
-+---------------------------------------------------------------------------+
-; Analysis & Synthesis Summary                                              ;
-+-----------------------------+---------------------------------------------+
-; Analysis & Synthesis Status ; Failed - Sat Jan 07 22:06:53 2023           ;
-; Quartus Prime Version       ; 20.1.1 Build 720 11/11/2020 SJ Lite Edition ;
-; Revision Name               ; PROJETO_MIC                                 ;
-; Top-level Entity Name       ; tb_projeto_mic                              ;
-; Family                      ; Cyclone V                                   ;
-; Logic utilization (in ALMs) ; N/A until Partition Merge                   ;
-; Total registers             ; N/A until Partition Merge                   ;
-; Total pins                  ; N/A until Partition Merge                   ;
-; Total virtual pins          ; N/A until Partition Merge                   ;
-; Total block memory bits     ; N/A until Partition Merge                   ;
-; Total PLLs                  ; N/A until Partition Merge                   ;
-; Total DLLs                  ; N/A until Partition Merge                   ;
-+-----------------------------+---------------------------------------------+
++-------------------------------------------------------------------------------+
+; Analysis & Synthesis Summary                                                  ;
++---------------------------------+---------------------------------------------+
+; Analysis & Synthesis Status     ; Successful - Mon Jan 09 19:58:39 2023       ;
+; Quartus Prime Version           ; 20.1.1 Build 720 11/11/2020 SJ Lite Edition ;
+; Revision Name                   ; PROJETO_MIC                                 ;
+; Top-level Entity Name           ; PROJETO_MIC                                 ;
+; Family                          ; Cyclone V                                   ;
+; Logic utilization (in ALMs)     ; N/A                                         ;
+; Total registers                 ; 52                                          ;
+; Total pins                      ; 73                                          ;
+; Total virtual pins              ; 0                                           ;
+; Total block memory bits         ; 0                                           ;
+; Total DSP Blocks                ; 0                                           ;
+; Total HSSI RX PCSs              ; 0                                           ;
+; Total HSSI PMA RX Deserializers ; 0                                           ;
+; Total HSSI TX PCSs              ; 0                                           ;
+; Total HSSI PMA TX Serializers   ; 0                                           ;
+; Total PLLs                      ; 0                                           ;
+; Total DLLs                      ; 0                                           ;
++---------------------------------+---------------------------------------------+
 
 
 +---------------------------------------------------------------------------------------------------------------------------+
@@ -58,7 +72,7 @@ https://fpgasoftware.intel.com/eula.
 ; Option                                                                          ; Setting            ; Default Value      ;
 +---------------------------------------------------------------------------------+--------------------+--------------------+
 ; Device                                                                          ; 5CGXFC7C7F23C8     ;                    ;
-; Top-level entity name                                                           ; tb_projeto_mic     ; PROJETO_MIC        ;
+; Top-level entity name                                                           ; PROJETO_MIC        ; PROJETO_MIC        ;
 ; Family name                                                                     ; Cyclone V          ; Cyclone V          ;
 ; Use smart compilation                                                           ; Off                ; Off                ;
 ; Enable parallel Assembler and Timing Analyzer during compilation                ; On                 ; On                 ;
@@ -148,11 +162,295 @@ https://fpgasoftware.intel.com/eula.
 ; Maximum allowed            ; 4           ;
 ;                            ;             ;
 ; Average used               ; 1.00        ;
-; Maximum used               ; 1           ;
+; Maximum used               ; 4           ;
 ;                            ;             ;
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
+;     Processors 2-4         ;   0.0%      ;
 +----------------------------+-------------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                               ;
++----------------------------------+-----------------+-----------------+-------------------------------------------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type       ; File Name with Absolute Path                                                        ; Library ;
++----------------------------------+-----------------+-----------------+-------------------------------------------------------------------------------------+---------+
+; PROJETO_MIC.vhd                  ; yes             ; User VHDL File  ; C:/Users/laris/Documents/GitHub/Projeto_Testbench_MIC/codes/PROJETO_MIC.vhd         ;         ;
+; MIC_Banck_Registers.vhd          ; yes             ; User VHDL File  ; C:/Users/laris/Documents/GitHub/Projeto_Testbench_MIC/codes/MIC_Banck_Registers.vhd ;         ;
++----------------------------------+-----------------+-----------------+-------------------------------------------------------------------------------------+---------+
+
+
++---------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary             ;
++---------------------------------------------+-----------+
+; Resource                                    ; Usage     ;
++---------------------------------------------+-----------+
+; Estimate of Logic utilization (ALMs needed) ; 43        ;
+;                                             ;           ;
+; Combinational ALUT usage for logic          ; 45        ;
+;     -- 7 input functions                    ; 0         ;
+;     -- 6 input functions                    ; 16        ;
+;     -- 5 input functions                    ; 21        ;
+;     -- 4 input functions                    ; 8         ;
+;     -- <=3 input functions                  ; 0         ;
+;                                             ;           ;
+; Dedicated logic registers                   ; 52        ;
+;                                             ;           ;
+; I/O pins                                    ; 73        ;
+;                                             ;           ;
+; Total DSP Blocks                            ; 0         ;
+;                                             ;           ;
+; Maximum fan-out node                        ; CLK~input ;
+; Maximum fan-out                             ; 52        ;
+; Total fan-out                               ; 531       ;
+; Average fan-out                             ; 2.19      ;
++---------------------------------------------+-----------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                           ;
++------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+--------------------------------------------+---------------------+--------------+
+; Compilation Hierarchy Node         ; Combinational ALUTs ; Dedicated Logic Registers ; Block Memory Bits ; DSP Blocks ; Pins ; Virtual Pins ; Full Hierarchy Name                        ; Entity Name         ; Library Name ;
++------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+--------------------------------------------+---------------------+--------------+
+; |PROJETO_MIC                       ; 45 (0)              ; 52 (14)                   ; 0                 ; 0          ; 73   ; 0            ; |PROJETO_MIC                               ; PROJETO_MIC         ; work         ;
+;    |MIC_Banck_Registers:Registers| ; 45 (45)             ; 38 (38)                   ; 0                 ; 0          ; 0    ; 0            ; |PROJETO_MIC|MIC_Banck_Registers:Registers ; MIC_Banck_Registers ; work         ;
++------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+--------------------------------------------+---------------------+--------------+
+Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
++-----------------------------------------------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                                                                    ;
++-----------------------------------------------------+-----------------------------------------------------------------+
+; Register name                                       ; Reason for Removal                                              ;
++-----------------------------------------------------+-----------------------------------------------------------------+
+; MIC_Banck_Registers:Registers|Bank_Register[7][0]   ; Stuck at VCC due to stuck port data_in                          ;
+; MIC_Banck_Registers:Registers|Bank_Register[8][0]   ; Stuck at VCC due to stuck port data_in                          ;
+; MIC_Banck_Registers:Registers|Bank_Register[9][0]   ; Stuck at VCC due to stuck port data_in                          ;
+; MIC_Banck_Registers:Registers|Bank_Register[7][1]   ; Stuck at VCC due to stuck port data_in                          ;
+; MIC_Banck_Registers:Registers|Bank_Register[8][1]   ; Stuck at VCC due to stuck port data_in                          ;
+; MIC_Banck_Registers:Registers|Bank_Register[9][1]   ; Stuck at VCC due to stuck port data_in                          ;
+; MIC_Banck_Registers:Registers|Bank_Register[7][2]   ; Stuck at VCC due to stuck port data_in                          ;
+; MIC_Banck_Registers:Registers|Bank_Register[8][2]   ; Stuck at VCC due to stuck port data_in                          ;
+; MIC_Banck_Registers:Registers|Bank_Register[9][2]   ; Stuck at VCC due to stuck port data_in                          ;
+; MIC_Banck_Registers:Registers|Bank_Register[7][3]   ; Stuck at VCC due to stuck port data_in                          ;
+; MIC_Banck_Registers:Registers|Bank_Register[8][3]   ; Stuck at VCC due to stuck port data_in                          ;
+; MIC_Banck_Registers:Registers|Bank_Register[9][3]   ; Stuck at VCC due to stuck port data_in                          ;
+; MIC_Banck_Registers:Registers|Bank_Register[7][4]   ; Stuck at VCC due to stuck port data_in                          ;
+; MIC_Banck_Registers:Registers|Bank_Register[8][4]   ; Stuck at VCC due to stuck port data_in                          ;
+; MIC_Banck_Registers:Registers|Bank_Register[9][4]   ; Stuck at VCC due to stuck port data_in                          ;
+; MIC_Banck_Registers:Registers|Bank_Register[7][5]   ; Stuck at VCC due to stuck port data_in                          ;
+; MIC_Banck_Registers:Registers|Bank_Register[8][5]   ; Stuck at VCC due to stuck port data_in                          ;
+; MIC_Banck_Registers:Registers|Bank_Register[9][5]   ; Stuck at VCC due to stuck port data_in                          ;
+; MIC_Banck_Registers:Registers|Bank_Register[7][6]   ; Stuck at VCC due to stuck port data_in                          ;
+; MIC_Banck_Registers:Registers|Bank_Register[8][6]   ; Stuck at VCC due to stuck port data_in                          ;
+; MIC_Banck_Registers:Registers|Bank_Register[9][6]   ; Stuck at VCC due to stuck port data_in                          ;
+; MIC_Banck_Registers:Registers|Bank_Register[7][7]   ; Stuck at VCC due to stuck port data_in                          ;
+; MIC_Banck_Registers:Registers|Bank_Register[8][7]   ; Stuck at VCC due to stuck port data_in                          ;
+; MIC_Banck_Registers:Registers|Bank_Register[9][7]   ; Stuck at VCC due to stuck port data_in                          ;
+; MIC_Banck_Registers:Registers|Bank_Register[7][8]   ; Stuck at VCC due to stuck port data_in                          ;
+; MIC_Banck_Registers:Registers|Bank_Register[8][8]   ; Stuck at VCC due to stuck port data_in                          ;
+; MIC_Banck_Registers:Registers|Bank_Register[9][8]   ; Stuck at GND due to stuck port data_in                          ;
+; MIC_Banck_Registers:Registers|Bank_Register[7][9]   ; Stuck at VCC due to stuck port data_in                          ;
+; MIC_Banck_Registers:Registers|Bank_Register[8][9]   ; Stuck at VCC due to stuck port data_in                          ;
+; MIC_Banck_Registers:Registers|Bank_Register[9][9]   ; Stuck at GND due to stuck port data_in                          ;
+; MIC_Banck_Registers:Registers|Bank_Register[7][10]  ; Stuck at VCC due to stuck port data_in                          ;
+; MIC_Banck_Registers:Registers|Bank_Register[8][10]  ; Stuck at VCC due to stuck port data_in                          ;
+; MIC_Banck_Registers:Registers|Bank_Register[9][10]  ; Stuck at GND due to stuck port data_in                          ;
+; MIC_Banck_Registers:Registers|Bank_Register[7][11]  ; Stuck at VCC due to stuck port data_in                          ;
+; MIC_Banck_Registers:Registers|Bank_Register[8][11]  ; Stuck at VCC due to stuck port data_in                          ;
+; MIC_Banck_Registers:Registers|Bank_Register[9][11]  ; Stuck at GND due to stuck port data_in                          ;
+; MIC_Banck_Registers:Registers|Bank_Register[0][2]   ; Merged with MIC_Banck_Registers:Registers|Bank_Register[0][1]   ;
+; MIC_Banck_Registers:Registers|Bank_Register[0][3]   ; Merged with MIC_Banck_Registers:Registers|Bank_Register[0][1]   ;
+; MIC_Banck_Registers:Registers|Bank_Register[0][4]   ; Merged with MIC_Banck_Registers:Registers|Bank_Register[0][1]   ;
+; MIC_Banck_Registers:Registers|Bank_Register[0][5]   ; Merged with MIC_Banck_Registers:Registers|Bank_Register[0][1]   ;
+; MIC_Banck_Registers:Registers|Bank_Register[0][6]   ; Merged with MIC_Banck_Registers:Registers|Bank_Register[0][1]   ;
+; MIC_Banck_Registers:Registers|Bank_Register[0][7]   ; Merged with MIC_Banck_Registers:Registers|Bank_Register[0][1]   ;
+; MIC_Banck_Registers:Registers|Bank_Register[1][2]   ; Merged with MIC_Banck_Registers:Registers|Bank_Register[1][1]   ;
+; MIC_Banck_Registers:Registers|Bank_Register[1][3]   ; Merged with MIC_Banck_Registers:Registers|Bank_Register[1][1]   ;
+; MIC_Banck_Registers:Registers|Bank_Register[1][4]   ; Merged with MIC_Banck_Registers:Registers|Bank_Register[1][1]   ;
+; MIC_Banck_Registers:Registers|Bank_Register[1][5]   ; Merged with MIC_Banck_Registers:Registers|Bank_Register[1][1]   ;
+; MIC_Banck_Registers:Registers|Bank_Register[1][6]   ; Merged with MIC_Banck_Registers:Registers|Bank_Register[1][1]   ;
+; MIC_Banck_Registers:Registers|Bank_Register[1][7]   ; Merged with MIC_Banck_Registers:Registers|Bank_Register[1][1]   ;
+; MIC_Banck_Registers:Registers|Bank_Register[2][2]   ; Merged with MIC_Banck_Registers:Registers|Bank_Register[2][1]   ;
+; MIC_Banck_Registers:Registers|Bank_Register[2][3]   ; Merged with MIC_Banck_Registers:Registers|Bank_Register[2][1]   ;
+; MIC_Banck_Registers:Registers|Bank_Register[2][4]   ; Merged with MIC_Banck_Registers:Registers|Bank_Register[2][1]   ;
+; MIC_Banck_Registers:Registers|Bank_Register[2][5]   ; Merged with MIC_Banck_Registers:Registers|Bank_Register[2][1]   ;
+; MIC_Banck_Registers:Registers|Bank_Register[2][6]   ; Merged with MIC_Banck_Registers:Registers|Bank_Register[2][1]   ;
+; MIC_Banck_Registers:Registers|Bank_Register[2][7]   ; Merged with MIC_Banck_Registers:Registers|Bank_Register[2][1]   ;
+; MIC_Banck_Registers:Registers|Bank_Register[3][2]   ; Merged with MIC_Banck_Registers:Registers|Bank_Register[3][1]   ;
+; MIC_Banck_Registers:Registers|Bank_Register[3][3]   ; Merged with MIC_Banck_Registers:Registers|Bank_Register[3][1]   ;
+; MIC_Banck_Registers:Registers|Bank_Register[3][4]   ; Merged with MIC_Banck_Registers:Registers|Bank_Register[3][1]   ;
+; MIC_Banck_Registers:Registers|Bank_Register[3][5]   ; Merged with MIC_Banck_Registers:Registers|Bank_Register[3][1]   ;
+; MIC_Banck_Registers:Registers|Bank_Register[3][6]   ; Merged with MIC_Banck_Registers:Registers|Bank_Register[3][1]   ;
+; MIC_Banck_Registers:Registers|Bank_Register[3][7]   ; Merged with MIC_Banck_Registers:Registers|Bank_Register[3][1]   ;
+; MIC_Banck_Registers:Registers|Bank_Register[4][2]   ; Merged with MIC_Banck_Registers:Registers|Bank_Register[4][1]   ;
+; MIC_Banck_Registers:Registers|Bank_Register[4][3]   ; Merged with MIC_Banck_Registers:Registers|Bank_Register[4][1]   ;
+; MIC_Banck_Registers:Registers|Bank_Register[4][4]   ; Merged with MIC_Banck_Registers:Registers|Bank_Register[4][1]   ;
+; MIC_Banck_Registers:Registers|Bank_Register[4][5]   ; Merged with MIC_Banck_Registers:Registers|Bank_Register[4][1]   ;
+; MIC_Banck_Registers:Registers|Bank_Register[4][6]   ; Merged with MIC_Banck_Registers:Registers|Bank_Register[4][1]   ;
+; MIC_Banck_Registers:Registers|Bank_Register[4][7]   ; Merged with MIC_Banck_Registers:Registers|Bank_Register[4][1]   ;
+; MIC_Banck_Registers:Registers|Bank_Register[5][2]   ; Merged with MIC_Banck_Registers:Registers|Bank_Register[5][1]   ;
+; MIC_Banck_Registers:Registers|Bank_Register[5][3]   ; Merged with MIC_Banck_Registers:Registers|Bank_Register[5][1]   ;
+; MIC_Banck_Registers:Registers|Bank_Register[5][4]   ; Merged with MIC_Banck_Registers:Registers|Bank_Register[5][1]   ;
+; MIC_Banck_Registers:Registers|Bank_Register[5][5]   ; Merged with MIC_Banck_Registers:Registers|Bank_Register[5][1]   ;
+; MIC_Banck_Registers:Registers|Bank_Register[5][6]   ; Merged with MIC_Banck_Registers:Registers|Bank_Register[5][1]   ;
+; MIC_Banck_Registers:Registers|Bank_Register[5][7]   ; Merged with MIC_Banck_Registers:Registers|Bank_Register[5][1]   ;
+; MIC_Banck_Registers:Registers|Bank_Register[6][2]   ; Merged with MIC_Banck_Registers:Registers|Bank_Register[6][1]   ;
+; MIC_Banck_Registers:Registers|Bank_Register[6][3]   ; Merged with MIC_Banck_Registers:Registers|Bank_Register[6][1]   ;
+; MIC_Banck_Registers:Registers|Bank_Register[6][4]   ; Merged with MIC_Banck_Registers:Registers|Bank_Register[6][1]   ;
+; MIC_Banck_Registers:Registers|Bank_Register[6][5]   ; Merged with MIC_Banck_Registers:Registers|Bank_Register[6][1]   ;
+; MIC_Banck_Registers:Registers|Bank_Register[6][6]   ; Merged with MIC_Banck_Registers:Registers|Bank_Register[6][1]   ;
+; MIC_Banck_Registers:Registers|Bank_Register[6][7]   ; Merged with MIC_Banck_Registers:Registers|Bank_Register[6][1]   ;
+; MIC_Banck_Registers:Registers|Bank_Register[10][2]  ; Merged with MIC_Banck_Registers:Registers|Bank_Register[10][1]  ;
+; MIC_Banck_Registers:Registers|Bank_Register[10][3]  ; Merged with MIC_Banck_Registers:Registers|Bank_Register[10][1]  ;
+; MIC_Banck_Registers:Registers|Bank_Register[10][4]  ; Merged with MIC_Banck_Registers:Registers|Bank_Register[10][1]  ;
+; MIC_Banck_Registers:Registers|Bank_Register[10][5]  ; Merged with MIC_Banck_Registers:Registers|Bank_Register[10][1]  ;
+; MIC_Banck_Registers:Registers|Bank_Register[10][6]  ; Merged with MIC_Banck_Registers:Registers|Bank_Register[10][1]  ;
+; MIC_Banck_Registers:Registers|Bank_Register[10][7]  ; Merged with MIC_Banck_Registers:Registers|Bank_Register[10][1]  ;
+; MIC_Banck_Registers:Registers|Bank_Register[11][2]  ; Merged with MIC_Banck_Registers:Registers|Bank_Register[11][1]  ;
+; MIC_Banck_Registers:Registers|Bank_Register[11][3]  ; Merged with MIC_Banck_Registers:Registers|Bank_Register[11][1]  ;
+; MIC_Banck_Registers:Registers|Bank_Register[11][4]  ; Merged with MIC_Banck_Registers:Registers|Bank_Register[11][1]  ;
+; MIC_Banck_Registers:Registers|Bank_Register[11][5]  ; Merged with MIC_Banck_Registers:Registers|Bank_Register[11][1]  ;
+; MIC_Banck_Registers:Registers|Bank_Register[11][6]  ; Merged with MIC_Banck_Registers:Registers|Bank_Register[11][1]  ;
+; MIC_Banck_Registers:Registers|Bank_Register[11][7]  ; Merged with MIC_Banck_Registers:Registers|Bank_Register[11][1]  ;
+; MIC_Banck_Registers:Registers|Bank_Register[12][2]  ; Merged with MIC_Banck_Registers:Registers|Bank_Register[12][1]  ;
+; MIC_Banck_Registers:Registers|Bank_Register[12][3]  ; Merged with MIC_Banck_Registers:Registers|Bank_Register[12][1]  ;
+; MIC_Banck_Registers:Registers|Bank_Register[12][4]  ; Merged with MIC_Banck_Registers:Registers|Bank_Register[12][1]  ;
+; MIC_Banck_Registers:Registers|Bank_Register[12][5]  ; Merged with MIC_Banck_Registers:Registers|Bank_Register[12][1]  ;
+; MIC_Banck_Registers:Registers|Bank_Register[12][6]  ; Merged with MIC_Banck_Registers:Registers|Bank_Register[12][1]  ;
+; MIC_Banck_Registers:Registers|Bank_Register[12][7]  ; Merged with MIC_Banck_Registers:Registers|Bank_Register[12][1]  ;
+; MIC_Banck_Registers:Registers|Bank_Register[13][2]  ; Merged with MIC_Banck_Registers:Registers|Bank_Register[13][1]  ;
+; MIC_Banck_Registers:Registers|Bank_Register[13][3]  ; Merged with MIC_Banck_Registers:Registers|Bank_Register[13][1]  ;
+; MIC_Banck_Registers:Registers|Bank_Register[13][4]  ; Merged with MIC_Banck_Registers:Registers|Bank_Register[13][1]  ;
+; MIC_Banck_Registers:Registers|Bank_Register[13][5]  ; Merged with MIC_Banck_Registers:Registers|Bank_Register[13][1]  ;
+; MIC_Banck_Registers:Registers|Bank_Register[13][6]  ; Merged with MIC_Banck_Registers:Registers|Bank_Register[13][1]  ;
+; MIC_Banck_Registers:Registers|Bank_Register[13][7]  ; Merged with MIC_Banck_Registers:Registers|Bank_Register[13][1]  ;
+; MIC_Banck_Registers:Registers|Bank_Register[14][2]  ; Merged with MIC_Banck_Registers:Registers|Bank_Register[14][1]  ;
+; MIC_Banck_Registers:Registers|Bank_Register[14][3]  ; Merged with MIC_Banck_Registers:Registers|Bank_Register[14][1]  ;
+; MIC_Banck_Registers:Registers|Bank_Register[14][4]  ; Merged with MIC_Banck_Registers:Registers|Bank_Register[14][1]  ;
+; MIC_Banck_Registers:Registers|Bank_Register[14][5]  ; Merged with MIC_Banck_Registers:Registers|Bank_Register[14][1]  ;
+; MIC_Banck_Registers:Registers|Bank_Register[14][6]  ; Merged with MIC_Banck_Registers:Registers|Bank_Register[14][1]  ;
+; MIC_Banck_Registers:Registers|Bank_Register[14][7]  ; Merged with MIC_Banck_Registers:Registers|Bank_Register[14][1]  ;
+; MIC_Banck_Registers:Registers|Bank_Register[15][2]  ; Merged with MIC_Banck_Registers:Registers|Bank_Register[15][1]  ;
+; MIC_Banck_Registers:Registers|Bank_Register[15][3]  ; Merged with MIC_Banck_Registers:Registers|Bank_Register[15][1]  ;
+; MIC_Banck_Registers:Registers|Bank_Register[15][4]  ; Merged with MIC_Banck_Registers:Registers|Bank_Register[15][1]  ;
+; MIC_Banck_Registers:Registers|Bank_Register[15][5]  ; Merged with MIC_Banck_Registers:Registers|Bank_Register[15][1]  ;
+; MIC_Banck_Registers:Registers|Bank_Register[15][6]  ; Merged with MIC_Banck_Registers:Registers|Bank_Register[15][1]  ;
+; MIC_Banck_Registers:Registers|Bank_Register[15][7]  ; Merged with MIC_Banck_Registers:Registers|Bank_Register[15][1]  ;
+; MIC_Banck_Registers:Registers|Bank_Register[0][11]  ; Merged with MIC_Banck_Registers:Registers|Bank_Register[0][10]  ;
+; MIC_Banck_Registers:Registers|Bank_Register[0][8]   ; Merged with MIC_Banck_Registers:Registers|Bank_Register[0][10]  ;
+; MIC_Banck_Registers:Registers|Bank_Register[0][9]   ; Merged with MIC_Banck_Registers:Registers|Bank_Register[0][10]  ;
+; MIC_Banck_Registers:Registers|Bank_Register[1][11]  ; Merged with MIC_Banck_Registers:Registers|Bank_Register[1][10]  ;
+; MIC_Banck_Registers:Registers|Bank_Register[1][8]   ; Merged with MIC_Banck_Registers:Registers|Bank_Register[1][10]  ;
+; MIC_Banck_Registers:Registers|Bank_Register[1][9]   ; Merged with MIC_Banck_Registers:Registers|Bank_Register[1][10]  ;
+; MIC_Banck_Registers:Registers|Bank_Register[2][11]  ; Merged with MIC_Banck_Registers:Registers|Bank_Register[2][10]  ;
+; MIC_Banck_Registers:Registers|Bank_Register[2][8]   ; Merged with MIC_Banck_Registers:Registers|Bank_Register[2][10]  ;
+; MIC_Banck_Registers:Registers|Bank_Register[2][9]   ; Merged with MIC_Banck_Registers:Registers|Bank_Register[2][10]  ;
+; MIC_Banck_Registers:Registers|Bank_Register[3][11]  ; Merged with MIC_Banck_Registers:Registers|Bank_Register[3][10]  ;
+; MIC_Banck_Registers:Registers|Bank_Register[3][8]   ; Merged with MIC_Banck_Registers:Registers|Bank_Register[3][10]  ;
+; MIC_Banck_Registers:Registers|Bank_Register[3][9]   ; Merged with MIC_Banck_Registers:Registers|Bank_Register[3][10]  ;
+; MIC_Banck_Registers:Registers|Bank_Register[4][11]  ; Merged with MIC_Banck_Registers:Registers|Bank_Register[4][10]  ;
+; MIC_Banck_Registers:Registers|Bank_Register[4][8]   ; Merged with MIC_Banck_Registers:Registers|Bank_Register[4][10]  ;
+; MIC_Banck_Registers:Registers|Bank_Register[4][9]   ; Merged with MIC_Banck_Registers:Registers|Bank_Register[4][10]  ;
+; MIC_Banck_Registers:Registers|Bank_Register[5][11]  ; Merged with MIC_Banck_Registers:Registers|Bank_Register[5][10]  ;
+; MIC_Banck_Registers:Registers|Bank_Register[5][8]   ; Merged with MIC_Banck_Registers:Registers|Bank_Register[5][10]  ;
+; MIC_Banck_Registers:Registers|Bank_Register[5][9]   ; Merged with MIC_Banck_Registers:Registers|Bank_Register[5][10]  ;
+; MIC_Banck_Registers:Registers|Bank_Register[6][11]  ; Merged with MIC_Banck_Registers:Registers|Bank_Register[6][10]  ;
+; MIC_Banck_Registers:Registers|Bank_Register[6][8]   ; Merged with MIC_Banck_Registers:Registers|Bank_Register[6][10]  ;
+; MIC_Banck_Registers:Registers|Bank_Register[6][9]   ; Merged with MIC_Banck_Registers:Registers|Bank_Register[6][10]  ;
+; MIC_Banck_Registers:Registers|Bank_Register[10][11] ; Merged with MIC_Banck_Registers:Registers|Bank_Register[10][10] ;
+; MIC_Banck_Registers:Registers|Bank_Register[10][8]  ; Merged with MIC_Banck_Registers:Registers|Bank_Register[10][10] ;
+; MIC_Banck_Registers:Registers|Bank_Register[10][9]  ; Merged with MIC_Banck_Registers:Registers|Bank_Register[10][10] ;
+; MIC_Banck_Registers:Registers|Bank_Register[11][11] ; Merged with MIC_Banck_Registers:Registers|Bank_Register[11][10] ;
+; MIC_Banck_Registers:Registers|Bank_Register[11][8]  ; Merged with MIC_Banck_Registers:Registers|Bank_Register[11][10] ;
+; MIC_Banck_Registers:Registers|Bank_Register[11][9]  ; Merged with MIC_Banck_Registers:Registers|Bank_Register[11][10] ;
+; MIC_Banck_Registers:Registers|Bank_Register[12][11] ; Merged with MIC_Banck_Registers:Registers|Bank_Register[12][10] ;
+; MIC_Banck_Registers:Registers|Bank_Register[12][8]  ; Merged with MIC_Banck_Registers:Registers|Bank_Register[12][10] ;
+; MIC_Banck_Registers:Registers|Bank_Register[12][9]  ; Merged with MIC_Banck_Registers:Registers|Bank_Register[12][10] ;
+; MIC_Banck_Registers:Registers|Bank_Register[13][11] ; Merged with MIC_Banck_Registers:Registers|Bank_Register[13][10] ;
+; MIC_Banck_Registers:Registers|Bank_Register[13][8]  ; Merged with MIC_Banck_Registers:Registers|Bank_Register[13][10] ;
+; MIC_Banck_Registers:Registers|Bank_Register[13][9]  ; Merged with MIC_Banck_Registers:Registers|Bank_Register[13][10] ;
+; MIC_Banck_Registers:Registers|Bank_Register[14][11] ; Merged with MIC_Banck_Registers:Registers|Bank_Register[14][10] ;
+; MIC_Banck_Registers:Registers|Bank_Register[14][8]  ; Merged with MIC_Banck_Registers:Registers|Bank_Register[14][10] ;
+; MIC_Banck_Registers:Registers|Bank_Register[14][9]  ; Merged with MIC_Banck_Registers:Registers|Bank_Register[14][10] ;
+; MIC_Banck_Registers:Registers|Bank_Register[15][11] ; Merged with MIC_Banck_Registers:Registers|Bank_Register[15][10] ;
+; MIC_Banck_Registers:Registers|Bank_Register[15][8]  ; Merged with MIC_Banck_Registers:Registers|Bank_Register[15][10] ;
+; MIC_Banck_Registers:Registers|Bank_Register[15][9]  ; Merged with MIC_Banck_Registers:Registers|Bank_Register[15][10] ;
+; MIC_Banck_Registers:Registers|Bank_Register[6][0]   ; Stuck at VCC due to stuck port data_in                          ;
+; Total Number of Removed Registers = 154             ;                                                                 ;
++-----------------------------------------------------+-----------------------------------------------------------------+
+
+
++------------------------------------------------------+
+; General Register Statistics                          ;
++----------------------------------------------+-------+
+; Statistic                                    ; Value ;
++----------------------------------------------+-------+
+; Total registers                              ; 52    ;
+; Number of registers using Synchronous Clear  ; 5     ;
+; Number of registers using Synchronous Load   ; 0     ;
+; Number of registers using Asynchronous Clear ; 52    ;
+; Number of registers using Asynchronous Load  ; 0     ;
+; Number of registers using Clock Enable       ; 50    ;
+; Number of registers using Preset             ; 0     ;
++----------------------------------------------+-------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                                                ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                                      ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------------------------------------------+
+; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |PROJETO_MIC|MIC_Banck_Registers:Registers|Bank_Register[9][8]  ;
+; 3:1                ; 12 bits   ; 24 LEs        ; 0 LEs                ; 24 LEs                 ; Yes        ; |PROJETO_MIC|MIC_Banck_Registers:Registers|Bank_Register[5][1]  ;
+; 3:1                ; 11 bits   ; 22 LEs        ; 0 LEs                ; 22 LEs                 ; Yes        ; |PROJETO_MIC|MIC_Banck_Registers:Registers|Bank_Register[6][7]  ;
+; 16:1               ; 12 bits   ; 120 LEs       ; 120 LEs              ; 0 LEs                  ; Yes        ; |PROJETO_MIC|REG_MAR[10]                                        ;
+; 3:1                ; 8 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |PROJETO_MIC|MIC_Banck_Registers:Registers|Bank_Register[9][1]  ;
+; 3:1                ; 12 bits   ; 24 LEs        ; 12 LEs               ; 12 LEs                 ; Yes        ; |PROJETO_MIC|MIC_Banck_Registers:Registers|Bank_Register[7][10] ;
+; 3:1                ; 12 bits   ; 24 LEs        ; 12 LEs               ; 12 LEs                 ; Yes        ; |PROJETO_MIC|MIC_Banck_Registers:Registers|Bank_Register[8][10] ;
+; 16:1               ; 12 bits   ; 120 LEs       ; 120 LEs              ; 0 LEs                  ; No         ; |PROJETO_MIC|MIC_Banck_Registers:Registers|Mux47                ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------------------------------------------+
+
+
++----------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "MIC_Banck_Registers:Registers"                                                                  ;
++------------------+--------+----------+-------------------------------------------------------------------------------------+
+; Port             ; Type   ; Severity ; Details                                                                             ;
++------------------+--------+----------+-------------------------------------------------------------------------------------+
+; a_output         ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; b_output[15..12] ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++------------------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++-----------------------------------------------------+
+; Post-Synthesis Netlist Statistics for Top Partition ;
++-----------------------+-----------------------------+
+; Type                  ; Count                       ;
++-----------------------+-----------------------------+
+; arriav_ff             ; 52                          ;
+;     CLR               ; 2                           ;
+;     ENA CLR           ; 45                          ;
+;     ENA CLR SCLR      ; 5                           ;
+; arriav_lcell_comb     ; 46                          ;
+;     normal            ; 46                          ;
+;         0 data inputs ; 1                           ;
+;         4 data inputs ; 8                           ;
+;         5 data inputs ; 21                          ;
+;         6 data inputs ; 16                          ;
+; boundary_port         ; 73                          ;
+;                       ;                             ;
+; Max LUT depth         ; 2.00                        ;
+; Average LUT depth     ; 1.50                        ;
++-----------------------+-----------------------------+
+
+
++-------------------------------+
+; Elapsed Time Per Partition    ;
++----------------+--------------+
+; Partition Name ; Elapsed Time ;
++----------------+--------------+
+; Top            ; 00:00:00     ;
++----------------+--------------+
 
 
 +-------------------------------+
@@ -161,7 +459,7 @@ https://fpgasoftware.intel.com/eula.
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
-    Info: Processing started: Sat Jan 07 22:06:46 2023
+    Info: Processing started: Mon Jan 09 19:58:32 2023
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off PROJETO_MIC -c PROJETO_MIC
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
@@ -186,20 +484,92 @@ Info (12021): Found 2 design units, including 1 entities, in source file mic_amu
 Info (12021): Found 2 design units, including 1 entities, in source file data_ok_gen.vhd
     Info (12022): Found design unit 1: Data_OK_Gen-behavioral File: C:/Users/laris/Documents/GitHub/Projeto_Testbench_MIC/codes/Data_OK_Gen.vhd Line: 16
     Info (12023): Found entity 1: Data_OK_Gen File: C:/Users/laris/Documents/GitHub/Projeto_Testbench_MIC/codes/Data_OK_Gen.vhd Line: 7
-Info (12127): Elaborating entity "tb_projeto_mic" for the top level hierarchy
-Warning (10541): VHDL Signal Declaration warning at tb_projeto_mic.vhd(45): used implicit default value for signal "signal_C" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: C:/Users/laris/Documents/GitHub/Projeto_Testbench_MIC/codes/tb_projeto_mic.vhd Line: 45
-Warning (10541): VHDL Signal Declaration warning at tb_projeto_mic.vhd(46): used implicit default value for signal "signal_B" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: C:/Users/laris/Documents/GitHub/Projeto_Testbench_MIC/codes/tb_projeto_mic.vhd Line: 46
-Warning (10541): VHDL Signal Declaration warning at tb_projeto_mic.vhd(47): used implicit default value for signal "signal_A" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: C:/Users/laris/Documents/GitHub/Projeto_Testbench_MIC/codes/tb_projeto_mic.vhd Line: 47
-Warning (10036): Verilog HDL or VHDL warning at tb_projeto_mic.vhd(53): object "signal_RD_OUTPUT" assigned a value but never read File: C:/Users/laris/Documents/GitHub/Projeto_Testbench_MIC/codes/tb_projeto_mic.vhd Line: 53
-Warning (10036): Verilog HDL or VHDL warning at tb_projeto_mic.vhd(54): object "signal_WR_OUTPUT" assigned a value but never read File: C:/Users/laris/Documents/GitHub/Projeto_Testbench_MIC/codes/tb_projeto_mic.vhd Line: 54
-Warning (10036): Verilog HDL or VHDL warning at tb_projeto_mic.vhd(55): object "signal_Z" assigned a value but never read File: C:/Users/laris/Documents/GitHub/Projeto_Testbench_MIC/codes/tb_projeto_mic.vhd Line: 55
-Warning (10036): Verilog HDL or VHDL warning at tb_projeto_mic.vhd(56): object "signal_N" assigned a value but never read File: C:/Users/laris/Documents/GitHub/Projeto_Testbench_MIC/codes/tb_projeto_mic.vhd Line: 56
-Error (10533): VHDL Wait Statement error at tb_projeto_mic.vhd(87): Wait Statement must contain condition clause with UNTIL keyword File: C:/Users/laris/Documents/GitHub/Projeto_Testbench_MIC/codes/tb_projeto_mic.vhd Line: 87
-Error (12153): Can't elaborate top-level user hierarchy
-Error: Quartus Prime Analysis & Synthesis was unsuccessful. 2 errors, 8 warnings
-    Error: Peak virtual memory: 4836 megabytes
-    Error: Processing ended: Sat Jan 07 22:06:53 2023
-    Error: Elapsed time: 00:00:07
-    Error: Total CPU time (on all processors): 00:00:06
+Info (12127): Elaborating entity "PROJETO_MIC" for the top level hierarchy
+Warning (10541): VHDL Signal Declaration warning at PROJETO_MIC.vhd(25): used implicit default value for signal "Z" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: C:/Users/laris/Documents/GitHub/Projeto_Testbench_MIC/codes/PROJETO_MIC.vhd Line: 25
+Warning (10541): VHDL Signal Declaration warning at PROJETO_MIC.vhd(26): used implicit default value for signal "N" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: C:/Users/laris/Documents/GitHub/Projeto_Testbench_MIC/codes/PROJETO_MIC.vhd Line: 26
+Warning (10036): Verilog HDL or VHDL warning at PROJETO_MIC.vhd(30): object "A_BUS" assigned a value but never read File: C:/Users/laris/Documents/GitHub/Projeto_Testbench_MIC/codes/PROJETO_MIC.vhd Line: 30
+Warning (10541): VHDL Signal Declaration warning at PROJETO_MIC.vhd(32): used implicit default value for signal "C_BUS" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: C:/Users/laris/Documents/GitHub/Projeto_Testbench_MIC/codes/PROJETO_MIC.vhd Line: 32
+Warning (10492): VHDL Process Statement warning at PROJETO_MIC.vhd(94): signal "REG_MAR" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/laris/Documents/GitHub/Projeto_Testbench_MIC/codes/PROJETO_MIC.vhd Line: 94
+Warning (10492): VHDL Process Statement warning at PROJETO_MIC.vhd(106): signal "REG_MBR_OUT" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/laris/Documents/GitHub/Projeto_Testbench_MIC/codes/PROJETO_MIC.vhd Line: 106
+Warning (10631): VHDL Process Statement warning at PROJETO_MIC.vhd(99): inferring latch(es) for signal or variable "REG_MBR_OUT", which holds its previous value in one or more paths through the process File: C:/Users/laris/Documents/GitHub/Projeto_Testbench_MIC/codes/PROJETO_MIC.vhd Line: 99
+Warning (10492): VHDL Process Statement warning at PROJETO_MIC.vhd(118): signal "REG_MBR_IN" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/laris/Documents/GitHub/Projeto_Testbench_MIC/codes/PROJETO_MIC.vhd Line: 118
+Warning (10492): VHDL Process Statement warning at PROJETO_MIC.vhd(130): signal "RD_OUT" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/laris/Documents/GitHub/Projeto_Testbench_MIC/codes/PROJETO_MIC.vhd Line: 130
+Warning (10492): VHDL Process Statement warning at PROJETO_MIC.vhd(142): signal "WR_OUT" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/laris/Documents/GitHub/Projeto_Testbench_MIC/codes/PROJETO_MIC.vhd Line: 142
+Info (10041): Inferred latch for "REG_MBR_OUT[0]" at PROJETO_MIC.vhd(99) File: C:/Users/laris/Documents/GitHub/Projeto_Testbench_MIC/codes/PROJETO_MIC.vhd Line: 99
+Info (10041): Inferred latch for "REG_MBR_OUT[1]" at PROJETO_MIC.vhd(99) File: C:/Users/laris/Documents/GitHub/Projeto_Testbench_MIC/codes/PROJETO_MIC.vhd Line: 99
+Info (10041): Inferred latch for "REG_MBR_OUT[2]" at PROJETO_MIC.vhd(99) File: C:/Users/laris/Documents/GitHub/Projeto_Testbench_MIC/codes/PROJETO_MIC.vhd Line: 99
+Info (10041): Inferred latch for "REG_MBR_OUT[3]" at PROJETO_MIC.vhd(99) File: C:/Users/laris/Documents/GitHub/Projeto_Testbench_MIC/codes/PROJETO_MIC.vhd Line: 99
+Info (10041): Inferred latch for "REG_MBR_OUT[4]" at PROJETO_MIC.vhd(99) File: C:/Users/laris/Documents/GitHub/Projeto_Testbench_MIC/codes/PROJETO_MIC.vhd Line: 99
+Info (10041): Inferred latch for "REG_MBR_OUT[5]" at PROJETO_MIC.vhd(99) File: C:/Users/laris/Documents/GitHub/Projeto_Testbench_MIC/codes/PROJETO_MIC.vhd Line: 99
+Info (10041): Inferred latch for "REG_MBR_OUT[6]" at PROJETO_MIC.vhd(99) File: C:/Users/laris/Documents/GitHub/Projeto_Testbench_MIC/codes/PROJETO_MIC.vhd Line: 99
+Info (10041): Inferred latch for "REG_MBR_OUT[7]" at PROJETO_MIC.vhd(99) File: C:/Users/laris/Documents/GitHub/Projeto_Testbench_MIC/codes/PROJETO_MIC.vhd Line: 99
+Info (10041): Inferred latch for "REG_MBR_OUT[8]" at PROJETO_MIC.vhd(99) File: C:/Users/laris/Documents/GitHub/Projeto_Testbench_MIC/codes/PROJETO_MIC.vhd Line: 99
+Info (10041): Inferred latch for "REG_MBR_OUT[9]" at PROJETO_MIC.vhd(99) File: C:/Users/laris/Documents/GitHub/Projeto_Testbench_MIC/codes/PROJETO_MIC.vhd Line: 99
+Info (10041): Inferred latch for "REG_MBR_OUT[10]" at PROJETO_MIC.vhd(99) File: C:/Users/laris/Documents/GitHub/Projeto_Testbench_MIC/codes/PROJETO_MIC.vhd Line: 99
+Info (10041): Inferred latch for "REG_MBR_OUT[11]" at PROJETO_MIC.vhd(99) File: C:/Users/laris/Documents/GitHub/Projeto_Testbench_MIC/codes/PROJETO_MIC.vhd Line: 99
+Info (10041): Inferred latch for "REG_MBR_OUT[12]" at PROJETO_MIC.vhd(99) File: C:/Users/laris/Documents/GitHub/Projeto_Testbench_MIC/codes/PROJETO_MIC.vhd Line: 99
+Info (10041): Inferred latch for "REG_MBR_OUT[13]" at PROJETO_MIC.vhd(99) File: C:/Users/laris/Documents/GitHub/Projeto_Testbench_MIC/codes/PROJETO_MIC.vhd Line: 99
+Info (10041): Inferred latch for "REG_MBR_OUT[14]" at PROJETO_MIC.vhd(99) File: C:/Users/laris/Documents/GitHub/Projeto_Testbench_MIC/codes/PROJETO_MIC.vhd Line: 99
+Info (10041): Inferred latch for "REG_MBR_OUT[15]" at PROJETO_MIC.vhd(99) File: C:/Users/laris/Documents/GitHub/Projeto_Testbench_MIC/codes/PROJETO_MIC.vhd Line: 99
+Info (12128): Elaborating entity "MIC_Banck_Registers" for hierarchy "MIC_Banck_Registers:Registers" File: C:/Users/laris/Documents/GitHub/Projeto_Testbench_MIC/codes/PROJETO_MIC.vhd Line: 73
+Warning (13024): Output pins are stuck at VCC or GND
+    Warning (13410): Pin "MBR_TO_MEM[0]" is stuck at GND File: C:/Users/laris/Documents/GitHub/Projeto_Testbench_MIC/codes/PROJETO_MIC.vhd Line: 21
+    Warning (13410): Pin "MBR_TO_MEM[1]" is stuck at GND File: C:/Users/laris/Documents/GitHub/Projeto_Testbench_MIC/codes/PROJETO_MIC.vhd Line: 21
+    Warning (13410): Pin "MBR_TO_MEM[2]" is stuck at GND File: C:/Users/laris/Documents/GitHub/Projeto_Testbench_MIC/codes/PROJETO_MIC.vhd Line: 21
+    Warning (13410): Pin "MBR_TO_MEM[3]" is stuck at GND File: C:/Users/laris/Documents/GitHub/Projeto_Testbench_MIC/codes/PROJETO_MIC.vhd Line: 21
+    Warning (13410): Pin "MBR_TO_MEM[4]" is stuck at GND File: C:/Users/laris/Documents/GitHub/Projeto_Testbench_MIC/codes/PROJETO_MIC.vhd Line: 21
+    Warning (13410): Pin "MBR_TO_MEM[5]" is stuck at GND File: C:/Users/laris/Documents/GitHub/Projeto_Testbench_MIC/codes/PROJETO_MIC.vhd Line: 21
+    Warning (13410): Pin "MBR_TO_MEM[6]" is stuck at GND File: C:/Users/laris/Documents/GitHub/Projeto_Testbench_MIC/codes/PROJETO_MIC.vhd Line: 21
+    Warning (13410): Pin "MBR_TO_MEM[7]" is stuck at GND File: C:/Users/laris/Documents/GitHub/Projeto_Testbench_MIC/codes/PROJETO_MIC.vhd Line: 21
+    Warning (13410): Pin "MBR_TO_MEM[8]" is stuck at GND File: C:/Users/laris/Documents/GitHub/Projeto_Testbench_MIC/codes/PROJETO_MIC.vhd Line: 21
+    Warning (13410): Pin "MBR_TO_MEM[9]" is stuck at GND File: C:/Users/laris/Documents/GitHub/Projeto_Testbench_MIC/codes/PROJETO_MIC.vhd Line: 21
+    Warning (13410): Pin "MBR_TO_MEM[10]" is stuck at GND File: C:/Users/laris/Documents/GitHub/Projeto_Testbench_MIC/codes/PROJETO_MIC.vhd Line: 21
+    Warning (13410): Pin "MBR_TO_MEM[11]" is stuck at GND File: C:/Users/laris/Documents/GitHub/Projeto_Testbench_MIC/codes/PROJETO_MIC.vhd Line: 21
+    Warning (13410): Pin "MBR_TO_MEM[12]" is stuck at GND File: C:/Users/laris/Documents/GitHub/Projeto_Testbench_MIC/codes/PROJETO_MIC.vhd Line: 21
+    Warning (13410): Pin "MBR_TO_MEM[13]" is stuck at GND File: C:/Users/laris/Documents/GitHub/Projeto_Testbench_MIC/codes/PROJETO_MIC.vhd Line: 21
+    Warning (13410): Pin "MBR_TO_MEM[14]" is stuck at GND File: C:/Users/laris/Documents/GitHub/Projeto_Testbench_MIC/codes/PROJETO_MIC.vhd Line: 21
+    Warning (13410): Pin "MBR_TO_MEM[15]" is stuck at GND File: C:/Users/laris/Documents/GitHub/Projeto_Testbench_MIC/codes/PROJETO_MIC.vhd Line: 21
+    Warning (13410): Pin "Z" is stuck at GND File: C:/Users/laris/Documents/GitHub/Projeto_Testbench_MIC/codes/PROJETO_MIC.vhd Line: 25
+    Warning (13410): Pin "N" is stuck at GND File: C:/Users/laris/Documents/GitHub/Projeto_Testbench_MIC/codes/PROJETO_MIC.vhd Line: 26
+Info (286030): Timing-Driven Synthesis is running
+Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
+    Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
+Warning (21074): Design contains 27 input pin(s) that do not drive logic
+    Warning (15610): No output dependent on input pin "AMUX" File: C:/Users/laris/Documents/GitHub/Projeto_Testbench_MIC/codes/PROJETO_MIC.vhd Line: 8
+    Warning (15610): No output dependent on input pin "ALU[0]" File: C:/Users/laris/Documents/GitHub/Projeto_Testbench_MIC/codes/PROJETO_MIC.vhd Line: 9
+    Warning (15610): No output dependent on input pin "ALU[1]" File: C:/Users/laris/Documents/GitHub/Projeto_Testbench_MIC/codes/PROJETO_MIC.vhd Line: 9
+    Warning (15610): No output dependent on input pin "MBR" File: C:/Users/laris/Documents/GitHub/Projeto_Testbench_MIC/codes/PROJETO_MIC.vhd Line: 10
+    Warning (15610): No output dependent on input pin "A[0]" File: C:/Users/laris/Documents/GitHub/Projeto_Testbench_MIC/codes/PROJETO_MIC.vhd Line: 17
+    Warning (15610): No output dependent on input pin "A[1]" File: C:/Users/laris/Documents/GitHub/Projeto_Testbench_MIC/codes/PROJETO_MIC.vhd Line: 17
+    Warning (15610): No output dependent on input pin "A[2]" File: C:/Users/laris/Documents/GitHub/Projeto_Testbench_MIC/codes/PROJETO_MIC.vhd Line: 17
+    Warning (15610): No output dependent on input pin "A[3]" File: C:/Users/laris/Documents/GitHub/Projeto_Testbench_MIC/codes/PROJETO_MIC.vhd Line: 17
+    Warning (15610): No output dependent on input pin "SH[0]" File: C:/Users/laris/Documents/GitHub/Projeto_Testbench_MIC/codes/PROJETO_MIC.vhd Line: 18
+    Warning (15610): No output dependent on input pin "SH[1]" File: C:/Users/laris/Documents/GitHub/Projeto_Testbench_MIC/codes/PROJETO_MIC.vhd Line: 18
+    Warning (15610): No output dependent on input pin "MEM_TO_MBR[0]" File: C:/Users/laris/Documents/GitHub/Projeto_Testbench_MIC/codes/PROJETO_MIC.vhd Line: 19
+    Warning (15610): No output dependent on input pin "MEM_TO_MBR[1]" File: C:/Users/laris/Documents/GitHub/Projeto_Testbench_MIC/codes/PROJETO_MIC.vhd Line: 19
+    Warning (15610): No output dependent on input pin "MEM_TO_MBR[2]" File: C:/Users/laris/Documents/GitHub/Projeto_Testbench_MIC/codes/PROJETO_MIC.vhd Line: 19
+    Warning (15610): No output dependent on input pin "MEM_TO_MBR[3]" File: C:/Users/laris/Documents/GitHub/Projeto_Testbench_MIC/codes/PROJETO_MIC.vhd Line: 19
+    Warning (15610): No output dependent on input pin "MEM_TO_MBR[4]" File: C:/Users/laris/Documents/GitHub/Projeto_Testbench_MIC/codes/PROJETO_MIC.vhd Line: 19
+    Warning (15610): No output dependent on input pin "MEM_TO_MBR[5]" File: C:/Users/laris/Documents/GitHub/Projeto_Testbench_MIC/codes/PROJETO_MIC.vhd Line: 19
+    Warning (15610): No output dependent on input pin "MEM_TO_MBR[6]" File: C:/Users/laris/Documents/GitHub/Projeto_Testbench_MIC/codes/PROJETO_MIC.vhd Line: 19
+    Warning (15610): No output dependent on input pin "MEM_TO_MBR[7]" File: C:/Users/laris/Documents/GitHub/Projeto_Testbench_MIC/codes/PROJETO_MIC.vhd Line: 19
+    Warning (15610): No output dependent on input pin "MEM_TO_MBR[8]" File: C:/Users/laris/Documents/GitHub/Projeto_Testbench_MIC/codes/PROJETO_MIC.vhd Line: 19
+    Warning (15610): No output dependent on input pin "MEM_TO_MBR[9]" File: C:/Users/laris/Documents/GitHub/Projeto_Testbench_MIC/codes/PROJETO_MIC.vhd Line: 19
+    Warning (15610): No output dependent on input pin "MEM_TO_MBR[10]" File: C:/Users/laris/Documents/GitHub/Projeto_Testbench_MIC/codes/PROJETO_MIC.vhd Line: 19
+    Warning (15610): No output dependent on input pin "MEM_TO_MBR[11]" File: C:/Users/laris/Documents/GitHub/Projeto_Testbench_MIC/codes/PROJETO_MIC.vhd Line: 19
+    Warning (15610): No output dependent on input pin "MEM_TO_MBR[12]" File: C:/Users/laris/Documents/GitHub/Projeto_Testbench_MIC/codes/PROJETO_MIC.vhd Line: 19
+    Warning (15610): No output dependent on input pin "MEM_TO_MBR[13]" File: C:/Users/laris/Documents/GitHub/Projeto_Testbench_MIC/codes/PROJETO_MIC.vhd Line: 19
+    Warning (15610): No output dependent on input pin "MEM_TO_MBR[14]" File: C:/Users/laris/Documents/GitHub/Projeto_Testbench_MIC/codes/PROJETO_MIC.vhd Line: 19
+    Warning (15610): No output dependent on input pin "MEM_TO_MBR[15]" File: C:/Users/laris/Documents/GitHub/Projeto_Testbench_MIC/codes/PROJETO_MIC.vhd Line: 19
+    Warning (15610): No output dependent on input pin "DATA_OK" File: C:/Users/laris/Documents/GitHub/Projeto_Testbench_MIC/codes/PROJETO_MIC.vhd Line: 20
+Info (21057): Implemented 169 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 41 input pins
+    Info (21059): Implemented 32 output pins
+    Info (21061): Implemented 96 logic cells
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 58 warnings
+    Info: Peak virtual memory: 4852 megabytes
+    Info: Processing ended: Mon Jan 09 19:58:39 2023
+    Info: Elapsed time: 00:00:07
+    Info: Total CPU time (on all processors): 00:00:07
 
 
